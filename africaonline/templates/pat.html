@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Car in Three.js</title>
+  <style>
+    body { margin: 0; }
+    canvas { display: block; }
+  </style>
+</head>
+<body>
+  <script src="https://threejs.org/build/three.js"></script>
+  <script>
+    // Set up the scene, camera, and renderer
+    var scene = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    var renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    // Create the car body
+    var carGeometry = new THREE.BoxGeometry(4, 1, 1);
+    var carMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+    var car = new THREE.Mesh(carGeometry, carMaterial);
+    scene.add(car);
+
+    // Create the car wheels
+    var wheelGeometry = new THREE.CylinderGeometry(0.5, 0.5, 0.3, 32);
+    var wheelMaterial = new THREE.MeshBasicMaterial({ color: 0x000000 });
+    var frontWheel = new THREE.Mesh(wheelGeometry, wheelMaterial);
+    frontWheel.position.set(-1, -0.5, 0.6);
+    scene.add(frontWheel);
+
+    var rearWheel = new THREE.Mesh(wheelGeometry, wheelMaterial);
+    rearWheel.position.set(-1, -0.5, -0.6);
+    scene.add(rearWheel);
+
+    // Position the camera
+    camera.position.z = 5;
+
+    // Animation loop
+    function animate() {
+      requestAnimationFrame(animate);
+      car.rotation.y += 0.01; // Rotate the car
+      renderer.render(scene, camera);
+    }
+    animate();
+  </script>
+</body>
+</html>

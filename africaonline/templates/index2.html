@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Konva Opacity Animation</title>
+    <script src="https://unpkg.com/konva@8.0.2/konva.min.js"></script>
+  </head>
+  <body>
+    <div id="container"></div>
+    <script>
+      // Create a stage and a layer
+      const stage = new Konva.Stage({
+        container: 'container',
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+
+      const layer = new Konva.Layer();
+      stage.add(layer);
+
+      // Create a rectangle
+      const rectangle = new Konva.Rect({
+        x: 100,
+        y: 100,
+        width: 200,
+        height: 100,
+        fill: 'blue',
+      });
+      layer.add(rectangle);
+
+      // Initial opacity and direction
+      let opacity = 0;
+      let opacityDirection = 1; // 1 for increasing, -1 for decreasing
+
+      // Function to animate opacity
+      function animateOpacity() {
+        // Increment or decrement opacity
+        opacity += opacityDirection * 0.01;
+
+        // Change direction if opacity reaches 0 or 1
+        if (opacity >= 1 || opacity <= 0) {
+          opacityDirection *= -1;
+        }
+
+        // Set the shape's opacity
+        rectangle.opacity(opacity);
+
+        // Redraw the layer
+        layer.draw();
+
+        // Request the next animation frame
+        requestAnimationFrame(animateOpacity);
+      }
+
+      // Start the opacity animation
+      animateOpacity();
+    </script>
+  </body>
+</html>
