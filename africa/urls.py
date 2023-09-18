@@ -20,4 +20,9 @@ from africaonline import views as av
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", av.afriq, name='afriq'),
+    path("about/", av.afriq1, name='afriq1'),
+    path("gallery/", av.afriq2, name='afriq2'),
+    path("faq/", av.afriq3, name='afriq3'),
+    path("contact/", av.afriq4, name='afriq4'),
+    path("profile/", av.afriq5, name='afriq5'),
 ]
