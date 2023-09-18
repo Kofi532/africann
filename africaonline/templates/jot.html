@@ -15,34 +15,54 @@
         }
         #konva-container {
             position: absolute;
+            /* z-index: 2; */
         }
         #button-container {
             position: absolute;
         }
+    button{
+      border: 4px solid white;
+    }
+    button:hover {
+      background-color: blue; /* New background color on hover */
+      color: white; /* New text color on hover */
+    }
+    /* main{
+      z-index: 1;
+    } */
+    .navigation button.active {
+      border: 4px solid black;
+      /* You can also style other properties like background color, border, etc., as needed */
+    }
     </style>
   </head>
   <body>
     <div id="afriq-container">
     <div id="konva-container"></div>
-          <div id="button-container">
-            <button style="height: 30px;" id="myButtonHome">HOME</button>
-            <button style="width: 80px; height: 30px;" id="myButtonAbout">ABOUT</button>
-            <button style="width: 80px; height: 30px;" id="myButtonGallery">GALLERY</button>
-            <button style="width: 80px; height: 30px;" id="myButtonFAQ">FAQ</button>
-            <button style="width: 80px; height: 30px;" id="myButtonContact">CONTACT</button>
-            <button style="width: 80px; height: 30px;" id="myButtonProfile">PROFILE</button>
+          <div class="navigation" id="button-container">
+            <a href="/"><button style=" height: 30px;" id="myButtonHome" class="{% if request.path == '/' %}active{% endif %}"><b>HOME</b></button></a>
+            <a href="/about/"><button style="width: 80px; height: 30px;" id="myButtonAbout" class="{% if request.path == '/about/' %}active{% endif %}"><b>ABOUT</b></button></a>
+            <a href="/gallery/"><button class="{% if request.path == '/gallery/' %}active{% endif %}" style="width: 80px; height: 30px;" id="myButtonGallery"><b>GALLERY</b></button></a>            
+            <a href="/faq/"><button class="{% if request.path == '/faq/' %}active{% endif %}" style="width: 80px; height: 30px;" id="myButtonFAQ"><b>FAQ</b></button></a>
+            <a href="/contact/"><button style="width: 80px; height: 30px;" id="myButtonContact" class="{% if request.path == '/contact/' %}active{% endif %}"><b>CONTACT</b></button></a>
+            <a href="/profile/"><button style="width: 80px; height: 30px;" id="myButtonProfile" class="{% if request.path == '/profile/' %}active{% endif %}"><b>PROFILE</b></button></a>       
           </div>  
 <div id="button-container">
+  <a href="/"></a>
   <button style="width: 80px; height: 30px;" id="myButtonHide"></button>
-  <button id="myDropHome">HOME</button>
-  <button id="myDropAbout">ABOUT</button>
-  <button id="myDropGallery">GALLERY</button>
-  <button id="myDropFaq">FAQ</button>
-  <button id="myDropContact">CONTACT</button>
-  <button id="myDropProfile">PROFILE</button>
+  <a href="/"><button id="myDropHome">HOME</button></a>
+  <a href="/about/"><button id="myDropAbout">ABOUT</button></a>
+  <a href="/gallery/"><button id="myDropGallery">GALLERY</button></a>
+  <a href="/faq/"><button id="myDropFaq">FAQ</button></a>
+  <a href="/contact/"><button id="myDropContact">CONTACT</button></a>
+  <a href="/profile/"><button id="myDropProfile">PROFILE</button></a>
+
 
 </div>
   </div>
+  <main id="workafriq">
+    {% block content %}{% endblock %}
+  </main>
   </body>
 
     <script>
@@ -182,6 +202,8 @@ drop_gallery.style.display = 'none';
 drop_profile.style.display = 'none';
 drop_home.style.display = 'none';
 
+var workafriq = document.getElementById('workafriq');
+
 const shapes = [];
 
 if (window.innerWidth < 980) {
@@ -192,6 +214,8 @@ if (window.innerWidth < 980) {
     button_hide.addEventListener("click", function() {
       if (isTaskDone) {
         // Undo Task
+        workafriq.style.display = 'block';
+
         isTaskDone = false;
         stage.height(50);
         drop_about.style.display = 'none';
@@ -202,6 +226,8 @@ if (window.innerWidth < 980) {
         drop_home.style.display = 'none';
       } else {
         // Do Task
+        workafriq.style.display = 'none';
+
         isTaskDone = true;
         stage.height(230);
         drop_home.style.display = 'block';
@@ -296,10 +322,11 @@ var aban = new Konva.Group({
     x: 0+navBar_1.width()/2+navBar_1.x(),
     y: -10,
     rotation:45,
-    // visible: false,
+    visible: false,
     draggable: true,
     scaleX:0.3,
     scaleY:0.3,
+    // visibility: false,
   
   });
   //vertical shape
@@ -2790,6 +2817,7 @@ a_a_abu11.y(278);
 
 //   layer.add(a_a_a_abusua);
 
+// animationstart
       // Initial opacity and direction
       let opacity = 0;
       let opacityDirection = 1; // 1 for increasing, -1 for decreasing
@@ -2797,7 +2825,7 @@ a_a_abu11.y(278);
       // Function to animate opacity
       function animateOpacity() {
         // Increment or decrement opacity
-        opacity += opacityDirection * 0.001;
+        opacity += opacityDirection * 0.005;
 
         // Change direction if opacity reaches 0 or 1
         if (opacity >= 1 || opacity <= 0) {
@@ -2821,6 +2849,12 @@ a_a_abu11.y(278);
       animateOpacity();
 
 
+
+
+
+      
+
+      // animationend
       // function hideShapesWithinWidth() {
       //   shapes.forEach((shape) => {
       //     const shapeX = shape.x();
