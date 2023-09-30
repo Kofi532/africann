@@ -1,0 +1,560 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://unpkg.com/konva@9.2.1/konva.min.js"></script>
+    <meta charset="utf-8" />
+    <title>Konva Circle Demo</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #f0f0f0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container"></div>
+    <script>
+      var width = window.innerWidth;
+      var height = window.innerHeight;
+
+      var stage = new Konva.Stage({
+        container: 'container',
+        width: width,
+        height: 50,
+      });
+
+      var layer = new Konva.Layer();
+
+const navBar_1 = new Konva.Rect({
+    x: 0,
+    y: 0,
+    width: (stage.width()/6),
+    height: stage.height(),
+    fill: 'white',
+});
+layer.add(navBar_1);
+
+      //anibere
+  var anibere = new Konva.Group({
+    x: 0,
+    y: 0,
+    visible: true,
+    scaleX: 1,
+  });
+  
+  var anibere1 = new Konva.Rect({
+    x: 85,
+    y: -10,
+    fill: '#D70040',
+    width: 50,
+    height: 50,
+    stroke: 'black',
+    strokeWidth: 5,
+    rotation: 45,
+  });
+
+  const anibere2 = anibere1.clone();
+  anibere2.y(70);
+
+const anibere3 = anibere2.clone();
+anibere3.x(130);
+anibere3.y(30);
+
+const anibere4 = anibere3.clone();
+anibere4.x(40);
+
+const anibere5 = anibere4.clone();
+anibere5.y(-50);
+
+const anibere6 = anibere4.clone();
+anibere6.y(110);
+
+const anibere7 = anibere3.clone();
+anibere7.y(-50);
+
+const anibere8 = anibere3.clone();
+anibere8.y(110);
+
+const anibere9 = anibere1.clone();
+anibere9.x(-5);
+
+const anibere10 = anibere1.clone();
+anibere10.x(175);
+
+const anibere11 = anibere2.clone();
+anibere11.x(-5);
+
+const anibere12 = anibere2.clone();
+anibere12.x(175);
+
+var anibere13 = new Konva.Rect({
+    x: -55,
+    y: -65,
+    fill: 'red',
+    width: 280,
+    height: 50,
+    stroke: 'blue',
+    strokeWidth: 1,
+    visible: false,
+  });
+
+const anibere14 = anibere13.clone();
+anibere14.y(145);
+
+var anibere15 = new Konva.Rect({
+    x: -55,
+    y: -50,
+    fill: 'yellow',
+    width: 50,
+    height: 200,
+    stroke: 'white',
+    strokeWidth: 1,
+    visible: false,
+  });
+const anibere16 = anibere15.clone();
+anibere16.x(175);
+
+const anibere17 = anibere5.clone();
+anibere17.x(220);
+
+const anibere18 = anibere3.clone();
+anibere18.x(220);
+
+const anibere19 = anibere6.clone();
+anibere19.x(220);
+
+const anibere20 = anibere2.clone();
+anibere20.x(265);
+const anibere21 = anibere1.clone();
+anibere21.x(265);
+
+anibere.add(anibere1).add(anibere2).add(anibere3).add(anibere4).add(anibere5).add(anibere6).add(anibere7).add(anibere8).add(anibere9).add(anibere10).add(anibere11).add(anibere12).add(anibere13).add(anibere14).add(anibere15).add(anibere16).add(anibere17).add(anibere18).add(anibere19).add(anibere20).add(anibere21);
+layer.add(anibere);
+
+
+const navBar_2 = new Konva.Rect({
+    x: 0+(stage.width()*(1/5)),
+    y: 0,
+    width: (stage.width()/6),
+    height: stage.height(),
+    fill: 'white',
+});
+layer.add(navBar_2);
+        //a_anibere
+var a_anibere = new Konva.Group({
+    x: stage.width()*(1/5),
+    y: 0,
+    visible: true,
+    scaleX: 1,
+  });
+  var a_anibere1 = new Konva.Rect({
+    x: 85,
+    y: -10,
+    fill: '#0F52BA',
+    width: 50,
+    height: 50,
+    stroke: 'black',
+    strokeWidth: 5,
+    rotation: 45,
+  });
+
+  const a_anibere2 = a_anibere1.clone();
+  a_anibere2.y(70);
+
+const a_anibere3 = a_anibere2.clone();
+a_anibere3.x(130);
+a_anibere3.y(30);
+
+const a_anibere4 = a_anibere3.clone();
+a_anibere4.x(40);
+
+const a_anibere5 = a_anibere4.clone();
+a_anibere5.y(-50);
+
+const a_anibere6 = a_anibere4.clone();
+a_anibere6.y(110);
+
+const a_anibere7 = a_anibere3.clone();
+a_anibere7.y(-50);
+
+const a_anibere8 = a_anibere3.clone();
+a_anibere8.y(110);
+
+const a_anibere9 = a_anibere1.clone();
+a_anibere9.x(-5);
+
+const a_anibere10 = a_anibere1.clone();
+a_anibere10.x(175);
+
+const a_anibere11 = a_anibere2.clone();
+a_anibere11.x(-5);
+
+const a_anibere12 = a_anibere2.clone();
+a_anibere12.x(175);
+
+var a_anibere13 = new Konva.Rect({
+    x: -55,
+    y: -65,
+    fill: 'red',
+    width: 280,
+    height: 50,
+    stroke: 'blue',
+    strokeWidth: 1,
+    visible: false,
+  });
+
+const a_anibere14 = a_anibere13.clone();
+a_anibere14.y(145);
+
+var a_anibere15 = new Konva.Rect({
+    x: -55,
+    y: -50,
+    fill: 'yellow',
+    width: 50,
+    height: 200,
+    stroke: 'white',
+    strokeWidth: 1,
+    visible: false,
+  });
+const a_anibere16 = a_anibere15.clone();
+a_anibere16.x(175);
+
+const a_anibere17 = a_anibere5.clone();
+a_anibere17.x(220);
+
+const a_anibere18 = a_anibere3.clone();
+a_anibere18.x(220);
+
+const a_anibere19 = a_anibere6.clone();
+a_anibere19.x(220);
+
+const a_anibere20 = a_anibere2.clone();
+a_anibere20.x(265);
+const a_anibere21 = a_anibere1.clone();
+a_anibere21.x(265);
+
+a_anibere.add(a_anibere1).add(a_anibere2).add(a_anibere3).add(a_anibere4).add(a_anibere5).add(a_anibere6).add(a_anibere7).add(a_anibere8).add(a_anibere9).add(a_anibere10).add(a_anibere11).add(a_anibere12).add(a_anibere13).add(a_anibere14).add(a_anibere15).add(a_anibere16).add(a_anibere17).add(a_anibere18).add(a_anibere19).add(a_anibere20).add(a_anibere21);
+layer.add(a_anibere);
+
+
+const navBar_3 = new Konva.Rect({
+    x: 0+(stage.width()*(2/5)),
+    y: 0,
+    width: (stage.width()/6),
+    height: stage.height(),
+    fill: 'white',
+});
+layer.add(navBar_3);
+        //b_anibere
+var b_anibere = new Konva.Group({
+    x: stage.width()*(2/5),
+    y: 0,
+    visible: true,
+    scaleX: 1,
+  });
+  var b_anibere1 = new Konva.Rect({
+    x: 85,
+    y: -10,
+    fill: '#097969',
+    width: 50,
+    height: 50,
+    stroke: 'black',
+    strokeWidth: 5,
+    rotation: 45,
+  });
+
+  const b_anibere2 = b_anibere1.clone();
+  b_anibere2.y(70);
+
+const b_anibere3 = b_anibere2.clone();
+b_anibere3.x(130);
+b_anibere3.y(30);
+
+const b_anibere4 = b_anibere3.clone();
+b_anibere4.x(40);
+
+const b_anibere5 = b_anibere4.clone();
+b_anibere5.y(-50);
+
+const b_anibere6 = b_anibere4.clone();
+b_anibere6.y(110);
+
+const b_anibere7 = b_anibere3.clone();
+b_anibere7.y(-50);
+
+const b_anibere8 = b_anibere3.clone();
+b_anibere8.y(110);
+
+const b_anibere9 = b_anibere1.clone();
+b_anibere9.x(-5);
+
+const b_anibere10 = b_anibere1.clone();
+b_anibere10.x(175);
+
+const b_anibere11 = b_anibere2.clone();
+b_anibere11.x(-5);
+
+const b_anibere12 = b_anibere2.clone();
+b_anibere12.x(175);
+
+var b_anibere13 = new Konva.Rect({
+    x: -55,
+    y: -65,
+    fill: 'red',
+    width: 280,
+    height: 50,
+    stroke: 'blue',
+    strokeWidth: 1,
+    visible: false,
+  });
+
+const b_anibere14 = b_anibere13.clone();
+b_anibere14.y(145);
+
+var b_anibere15 = new Konva.Rect({
+    x: -55,
+    y: -50,
+    fill: 'yellow',
+    width: 50,
+    height: 200,
+    stroke: 'white',
+    strokeWidth: 1,
+    visible: false,
+  });
+const b_anibere16 = b_anibere15.clone();
+b_anibere16.x(175);
+
+const b_anibere17 = b_anibere5.clone();
+b_anibere17.x(220);
+
+const b_anibere18 = b_anibere3.clone();
+b_anibere18.x(220);
+
+const b_anibere19 = b_anibere6.clone();
+b_anibere19.x(220);
+
+const b_anibere20 = b_anibere2.clone();
+b_anibere20.x(265);
+const b_anibere21 = b_anibere1.clone();
+b_anibere21.x(265);
+
+b_anibere.add(b_anibere1).add(b_anibere2).add(b_anibere3).add(b_anibere4).add(b_anibere5).add(b_anibere6).add(b_anibere7).add(b_anibere8).add(b_anibere9).add(b_anibere10).add(b_anibere11).add(b_anibere12).add(b_anibere13).add(b_anibere14).add(b_anibere15).add(b_anibere16).add(b_anibere17).add(b_anibere18).add(b_anibere19).add(b_anibere20).add(b_anibere21);
+layer.add(b_anibere);
+
+
+const navBar_4 = new Konva.Rect({
+    x: 0+(stage.width()*(3/5)),
+    y: 0,
+    width: (stage.width()/6),
+    height: stage.height(),
+    fill: 'white',
+});
+layer.add(navBar_4);
+        //c_anibere
+        var c_anibere = new Konva.Group({
+    x:  stage.width()*(3/5),
+    y: 0,
+    visible: true,
+    scaleX: 1,
+  });
+  var c_anibere1 = new Konva.Rect({
+    x: 85,
+    y: -10,
+    fill: '#DAA520',
+    width: 50,
+    height: 50,
+    stroke: 'black',
+    strokeWidth: 5,
+    rotation: 45,
+  });
+
+  const c_anibere2 = c_anibere1.clone();
+  c_anibere2.y(70);
+
+const c_anibere3 = c_anibere2.clone();
+c_anibere3.x(130);
+c_anibere3.y(30);
+
+const c_anibere4 = c_anibere3.clone();
+c_anibere4.x(40);
+
+const c_anibere5 = c_anibere4.clone();
+c_anibere5.y(-50);
+
+const c_anibere6 = c_anibere4.clone();
+c_anibere6.y(110);
+
+const c_anibere7 = c_anibere3.clone();
+c_anibere7.y(-50);
+
+const c_anibere8 = c_anibere3.clone();
+c_anibere8.y(110);
+
+const c_anibere9 = c_anibere1.clone();
+c_anibere9.x(-5);
+
+const c_anibere10 = c_anibere1.clone();
+c_anibere10.x(175);
+
+const c_anibere11 = c_anibere2.clone();
+c_anibere11.x(-5);
+
+const c_anibere12 = c_anibere2.clone();
+c_anibere12.x(175);
+
+var c_anibere13 = new Konva.Rect({
+    x: -55,
+    y: -65,
+    fill: 'red',
+    width: 280,
+    height: 50,
+    stroke: 'blue',
+    strokeWidth: 1,
+    visible: false,
+  });
+
+const c_anibere14 = c_anibere13.clone();
+c_anibere14.y(145);
+
+var c_anibere15 = new Konva.Rect({
+    x: -55,
+    y: -50,
+    fill: 'yellow',
+    width: 50,
+    height: 200,
+    stroke: 'white',
+    strokeWidth: 1,
+    visible: false,
+  });
+const c_anibere16 = c_anibere15.clone();
+c_anibere16.x(175);
+
+const c_anibere17 = c_anibere5.clone();
+c_anibere17.x(220);
+
+const c_anibere18 = c_anibere3.clone();
+c_anibere18.x(220);
+
+const c_anibere19 = c_anibere6.clone();
+c_anibere19.x(220);
+
+const c_anibere20 = c_anibere2.clone();
+c_anibere20.x(265);
+const c_anibere21 = c_anibere1.clone();
+c_anibere21.x(265);
+
+c_anibere.add(c_anibere1).add(c_anibere2).add(c_anibere3).add(c_anibere4).add(c_anibere5).add(c_anibere6).add(c_anibere7).add(c_anibere8).add(c_anibere9).add(c_anibere10).add(c_anibere11).add(c_anibere12).add(c_anibere13).add(c_anibere14).add(c_anibere15).add(c_anibere16).add(c_anibere17).add(c_anibere18).add(c_anibere19).add(c_anibere20).add(c_anibere21);
+layer.add(c_anibere);
+
+const navBar_5 = new Konva.Rect({
+    x: 0+stage.width()*(4/5),
+    y: 0,
+    width: (stage.width()/6),
+    height: stage.height(),
+    fill: 'white',
+});
+layer.add(navBar_5);
+        //d_anibere
+        var d_anibere = new Konva.Group({
+    x:  stage.width()*(4/5),
+    y: 0,
+    visible: true,
+    scaleX: 1,
+  });
+  var d_anibere1 = new Konva.Rect({
+    x: 85,
+    y: -10,
+    fill: 'pink',
+    width: 50,
+    height: 50,
+    stroke: 'black',
+    strokeWidth: 5,
+    rotation: 45,
+  });
+
+  const d_anibere2 = d_anibere1.clone();
+  d_anibere2.y(70);
+
+const d_anibere3 = d_anibere2.clone();
+d_anibere3.x(130);
+d_anibere3.y(30);
+
+const d_anibere4 = d_anibere3.clone();
+d_anibere4.x(40);
+
+const d_anibere5 = d_anibere4.clone();
+d_anibere5.y(-50);
+
+const d_anibere6 = d_anibere4.clone();
+d_anibere6.y(110);
+
+const d_anibere7 = d_anibere3.clone();
+d_anibere7.y(-50);
+
+const d_anibere8 = d_anibere3.clone();
+d_anibere8.y(110);
+
+const d_anibere9 = d_anibere1.clone();
+d_anibere9.x(-5);
+
+const d_anibere10 = d_anibere1.clone();
+d_anibere10.x(175);
+
+const d_anibere11 = d_anibere2.clone();
+d_anibere11.x(-5);
+
+const d_anibere12 = d_anibere2.clone();
+d_anibere12.x(175);
+
+var d_anibere13 = new Konva.Rect({
+    x: -55,
+    y: -65,
+    fill: 'red',
+    width: 280,
+    height: 50,
+    stroke: 'blue',
+    strokeWidth: 1,
+    visible: false,
+  });
+
+const d_anibere14 = d_anibere13.clone();
+d_anibere14.y(145);
+
+var d_anibere15 = new Konva.Rect({
+    x: -55,
+    y: -50,
+    fill: 'yellow',
+    width: 50,
+    height: 200,
+    stroke: 'white',
+    strokeWidth: 1,
+    visible: false,
+  });
+const d_anibere16 = d_anibere15.clone();
+d_anibere16.x(175);
+
+const d_anibere17 = d_anibere5.clone();
+d_anibere17.x(220);
+
+const d_anibere18 = d_anibere3.clone();
+d_anibere18.x(220);
+
+const d_anibere19 = d_anibere6.clone();
+d_anibere19.x(220);
+
+const d_anibere20 = d_anibere2.clone();
+d_anibere20.x(265);
+const d_anibere21 = d_anibere1.clone();
+d_anibere21.x(265);
+
+d_anibere.add(d_anibere1).add(d_anibere2).add(d_anibere3).add(d_anibere4).add(d_anibere5).add(d_anibere6).add(d_anibere7).add(d_anibere8).add(d_anibere9).add(d_anibere10).add(d_anibere11).add(d_anibere12).add(d_anibere13).add(d_anibere14).add(d_anibere15).add(d_anibere16).add(d_anibere17).add(d_anibere18).add(d_anibere19).add(d_anibere20).add(d_anibere21);
+layer.add(d_anibere);
+
+      // add the layer to the stage
+      stage.add(layer);
+    </script>
+  </body>
+</html>
